@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ruleset name="JeanForteroche">
+    <description>My formatting rules</description>
+
+    <arg name="colors" />
+    <arg value="p" />
+
+    <file>src</file>
+    <file>public</file>
+    <file>config</file>
+
+    <rule ref="PSR2">
+        <exclude name="Generic.Files.LineEndings.InvalidEOLChar"/>
+    </rule>
+
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax" />
+
+    <rule ref="Generic.Files.LineEndings">
+        <properties>
+            <property name="eolChar" value="\r\n"/>
+        </properties>
+    </rule>
+
+
+</ruleset>

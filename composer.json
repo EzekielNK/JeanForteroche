@@ -1,0 +1,28 @@
+{
+    "name": "virtual-dev/jean-forteroche",
+    "type": "website",
+    "description": "Project 4: Blog - PHP - SQL",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ezekiel NK",
+            "email": "nalax2@gmail.com",
+            "homepage": "https://www.virtualdev.fr",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src",
+            "Config\\": "config",
+            "Tests\\": "tests"
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5",
+        "filp/whoops": "^2.7",
+        "symfony/var-dumper": "^5.1",
+        "phpunit/phpunit": "8.0.0"
+    }
+}
