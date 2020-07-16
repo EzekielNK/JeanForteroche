@@ -21,6 +21,7 @@
         <title>Jean Forteroche</title>
         <link rel="shortcut icon" href="">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     </head>
     <body>
