@@ -22,30 +22,39 @@ body{
     width: auto;
     height: 100px;
     background-color: var(--dark-color);
-    color: var(--blue-color);
+    color: var(--body-color);
+}
+.title-jf, .title-ae{
+    position: absolute;
+    margin: auto;
+}
+.title-jf{
+    top: 23px;
+}
+.title-ae{
+    top: 60px;
 }
 #logo{
     position: absolute;
-    left: 20px;
+    left: 10px;
     top: 18px;
 }
 .imgLogo{
     width: 50%;
     height: auto;
-    border-radius: 10%;
+    image-rendering: optimizeQuality;
 }
 #login{
     position: absolute;
-    right: 20px;
-    top: 10px;
+    right: 10px;
+    top: 5px;
 }
 .connexion{
-    color: var(--blue-color);
+    color: var(--body-color);
     text-decoration: none;
 }
 #container-nav{
     display: none;
-    border:1px solid purple;
     margin: auto;
 }
 .container-ul{

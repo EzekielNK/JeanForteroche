@@ -31,6 +31,8 @@
             <img class="imgLogo" src="img/logo/logoT.png" alt="Logo de Jean Forteroche: couleur image de fond gris, lettre J et F
             en majuscule de couleur bleu claire et le reste des lettres en minuscle de couleur noir vert" />
         </div>
+        <h2 class="title-jf">Jean Forteroche</h2>
+        <h3 class="title-ae">Acteur et Écrivain</h3>
         <div id="login"><a class="connexion" href="#">Se connecter</a></div>
         <nav id="container-nav">
             <ul class="container-ul">
