@@ -12,6 +12,11 @@
     </div>
 
     <footer>
+        <div class="container-footer">
+            <?php if (defined('DEBUG_TIME')): ?>
+                Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME))?> ms
+            <?php endif ?>
+        </div>
     </footer>
 
     <script src="js/TabBar.js"></script>

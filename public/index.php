@@ -6,6 +6,18 @@
  * Time: 19:00
  */
 require '../vendor/autoload.php';
+/**
+ * DEV MODE
+ */
+define('DEBUG_TIME', microtime(true));
+
+$whoops = new \Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register();
+
+/**
+ * END DEV MODE
+ */
 
 $router = new AltoRouter();
 

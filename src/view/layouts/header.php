@@ -26,14 +26,18 @@
     </head>
     <body>
 
-    <header>
-        <nav>
-            <ul>
+    <header id="container-header">
+        <div id="logo">
+            <img class="imgLogo" src="img/logo/logoT.png" alt="Logo de Jean Forteroche: couleur image de fond gris, lettre J et F
+            en majuscule de couleur bleu claire et le reste des lettres en minuscle de couleur noir vert" />
+        </div>
+        <div id="login"><a class="connexion" href="#">Se connecter</a></div>
+        <nav id="container-nav">
+            <ul class="container-ul">
                 <li>Accueil</li>
                 <li>Article</li>
-                <li>A propos de moi</li>
+                <li>Biographie</li>
                 <li>Contact</li>
-                <li>Se connecter</li>
             </ul>
         </nav>
     </header>
