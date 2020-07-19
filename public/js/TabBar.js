@@ -16,16 +16,13 @@ class TabBar {
         this.menu_indicator.style.left = this.menu_position + "px";
         this.menu_bar.style.backgroundPosition = this.menu_position - 8 + 'px';
         let that = this;
-        this.menu_item.forEach(function(select_menu_item) {
+        this.menu_item.forEach(function (select_menu_item) {
             select_menu_item.addEventListener('click', function (e) {
                 e.preventDefault();
                 that.menu_position = this.offsetLeft -16;
                 that.menu_indicator.style.left = that.menu_position + "px";
                 that.menu_bar.style.backgroundPosition = that.menu_position - 8 + 'px';
-                [...select_menu_item.parentElement.children].forEach(
-                    sibling => {
-                        sibling.classList.remove('tab-current');
-                    });
+                [...select_menu_item.parentElement.children].forEach(sibling => {sibling.classList.remove('tab-current');});
                 select_menu_item.classList.add('tab-current');
             });
         })

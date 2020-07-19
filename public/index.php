@@ -5,6 +5,9 @@
  * Date: 13/07/2020
  * Time: 19:00
  */
+
+use App\Router;
+
 require '../vendor/autoload.php';
 /**
  * DEV MODE
@@ -19,13 +22,11 @@ $whoops->register();
  * END DEV MODE
  */
 
-$router = new AltoRouter();
-
-define('VIEW_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'view');
-
-$router->map('GET', '/blog', function () {
-    require VIEW_PATH . '/post/index.php';
-});
-
-$match = $router->match();
-$match['target']();
+$router = new Router(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'view');
+/**
+ * Note perso: Je charge que du php pour le moment ('post/index') sinon ajouter .js, .html etc ... en fonction du
+ * script à charger.
+ */
+$router
+    ->get('/blog', 'post/index', '/blog')
+    ->run();
