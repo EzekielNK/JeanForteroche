@@ -12,6 +12,7 @@ require '../vendor/autoload.php';
 /**
  * DEV MODE
  */
+// Obtiens une warning phpcs (A file should declare new symbols (classes, functions, constants, etc.))
 define('DEBUG_TIME', microtime(true));
 
 $whoops = new \Whoops\Run;
