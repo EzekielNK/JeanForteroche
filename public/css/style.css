@@ -1,7 +1,9 @@
+                                        /* MOBILE FIRST */
+
 :root{
-    --primary-color: #0D6FFA;
+    /*--primary-color: #0D6FFA;
     --accent-color: #49CE95;
-    --danger-color: #EC3582;
+    --danger-color: #EC3582;*/
     --fore-color:rgba(29, 38, 33, 1);
     --main-cast-shadow: 0px 3px 12px rgba(0, 0, 0, 0.08), 0px 3px 6px rgba(0, 0, 0, 0.12);
                                         /* Color Web site */
@@ -30,9 +32,11 @@ body{
 }
 .title-jf{
     top: 23px;
+    font-size: 1.2em;
 }
 .title-ae{
     top: 60px;
+    font-size: 1em;
 }
 #logo{
     position: absolute;
@@ -48,6 +52,7 @@ body{
     position: absolute;
     right: 10px;
     top: 5px;
+    font-size: 0.9em;
 }
 .connexion{
     color: var(--body-color);
@@ -60,10 +65,7 @@ body{
 .container-ul{
     display: flex;
     list-style: none;
-    margin: auto;
-    text-align: left;
     padding: 0;
-    width: auto;
 }
                                         /* TabBar */
 .tab-bottom-bar{
