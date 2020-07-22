@@ -1,8 +1,8 @@
 <?php
-use Config\Connection;
 
 require dirname(dirname(dirname(__DIR__))) . DIRECTORY_SEPARATOR .'config/DataPDO.php';
 
+use Config\Connection;
 
 ?>
 <!DOCTYPE html>
