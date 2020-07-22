@@ -1,3 +1,10 @@
+<?php
+use Config\Connexion;
+
+require dirname(dirname(dirname(__DIR__))) . DIRECTORY_SEPARATOR .'config/DataPDO.php';
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -47,7 +54,7 @@
         <div class="container">
             <?= $content ?>
             <?php
-                $pdo = new \Config\Connexion();
+                $pdo = new Connexion();
             ?>
             <?= $pdo->getPDO(); ?>
         </div>
