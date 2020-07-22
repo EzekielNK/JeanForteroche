@@ -1,5 +1,5 @@
 <?php
-use Config\Connexion;
+use Config\Connection;
 
 require dirname(dirname(dirname(__DIR__))) . DIRECTORY_SEPARATOR .'config/DataPDO.php';
 
@@ -25,7 +25,7 @@ require dirname(dirname(dirname(__DIR__))) . DIRECTORY_SEPARATOR .'config/DataPD
             <meta property="twitter:description"
                   content="" />
             <meta property="twitter:image" content="" />
-            <title>Jean Forteroche</title>
+            <title><?= $title ?? 'Jean Forteroche' ?></title>
             <link rel="shortcut icon" href="">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
             <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
@@ -54,7 +54,7 @@ require dirname(dirname(dirname(__DIR__))) . DIRECTORY_SEPARATOR .'config/DataPD
         <div class="container">
             <?= $content ?>
             <?php
-                $pdo = new Connexion();
+                $pdo = new Connection();
             ?>
             <?= $pdo->getPDO(); ?>
         </div>

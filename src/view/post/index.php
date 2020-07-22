@@ -1,3 +1,7 @@
+<?php
+$title = 'Jean Forteroche : Accueil';
+?>
+
 <h1>Bienvenue sur mon blog</h1>
 
 <div class="post">
