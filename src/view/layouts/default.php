@@ -46,6 +46,10 @@
 
         <div class="container">
             <?= $content ?>
+            <?php
+                $pdo = new \Config\Connexion();
+            ?>
+            <?= $pdo->getPDO(); ?>
         </div>
 
         <!-- Tab Bar Mobile -->
