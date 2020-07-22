@@ -1,0 +1,1 @@
+C:30:"PHPUnit\Runner\TestResultCache":290:{a:2:{s:7:"defects";a:3:{s:31:"Tests\RouterTest::testGetMethod";i:4;s:25:"Tests\RouterTest::testGet";i:4;s:25:"Tests\RouterTest::testRun";i:4;}s:5:"times";a:3:{s:31:"Tests\RouterTest::testGetMethod";d:0.006;s:25:"Tests\RouterTest::testGet";d:0.009;s:25:"Tests\RouterTest::testRun";d:0.001;}}}
