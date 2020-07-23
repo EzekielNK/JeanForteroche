@@ -35,7 +35,7 @@ use Config\Connection;
 
         <header id="container-header">
             <div id="logo">
-                <img class="imgLogo" src="img/logo/logoT.png" alt="Logo de Jean Forteroche:
+                <img class="imgLogo" src="img/logo/logo_jf.png" alt="Logo de Jean Forteroche:
                 Logo composait de deux lettres J et F en majuscule de couleur bleu-gris" />
             </div>
             <h2 class="title-jf">Jean Forteroche</h2>
