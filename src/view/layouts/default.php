@@ -1,8 +1,9 @@
 <?php
 
-require dirname(dirname(dirname(__DIR__))) . DIRECTORY_SEPARATOR .'config/DataPDO.php';
+/*require dirname(dirname(dirname(__DIR__))) . DIRECTORY_SEPARATOR .'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+require dirname(dirname(dirname(__DIR__))) . DIRECTORY_SEPARATOR .'config' . DIRECTORY_SEPARATOR . 'DataPDO.php';
 
-use Config\Connection;
+use Config\Connection;*/
 
 ?>
 <!DOCTYPE html>
@@ -53,10 +54,6 @@ use Config\Connection;
 
         <div class="container">
             <?= $content ?>
-            <?php
-                $pdo = new Connection();
-            ?>
-            <?= $pdo->getPDO(); ?>
         </div>
 
         <!-- Tab Bar Mobile -->

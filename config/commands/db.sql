@@ -1,4 +1,4 @@
-                                        /* structure of database tables */
+                                        /* structure of database tables: Execute requests directly with phpmyAdmin */
 
 /* structure of users table */ /*Note Perso possible changement prof slu et content et ft_image*/
 DROP TABLE IF EXISTS users;
@@ -107,3 +107,18 @@ CREATE TABLE IF NOT EXISTS users_posts (
         ON DELETE CASCADE
         ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+                                        /* Clean DB  */
+/*Following an SQL error, the request statement in a PHP script,
+we will directly clean the DB in sql command with PHPMyAdmin.
+SQL errors : 1701 Cannot truncate a table referenced in a foreign key constraint
+*/
+
+/* Do not forget to uncheck the box Enable the checking of foreign keys so that the request works on phpmyadmin */
+TRUNCATE TABLE users;
+TRUNCATE TABLE posts;
+TRUNCATE TABLE categories;
+TRUNCATE TABLE comments;
+TRUNCATE TABLE posts_categories;
+TRUNCATE TABLE posts_comments;
+TRUNCATE TABLE users_posts;

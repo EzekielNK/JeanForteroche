@@ -17,7 +17,7 @@ class Connection
                 DATABASE_PASSWORD,
                 OPTIONS
             );
-            return 'connexion ok';
+            return $pdo;
         } catch (PDOException $errors) {
             die('Erreur de connexion:' . $errors);
         }
