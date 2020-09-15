@@ -12,7 +12,7 @@ class Connection
     {
         try {
             $pdo = new PDO(
-                DATABASE_HOST. DATABASE_NAME. DATABASE_CHARSET,
+                DSN,
                 DATABASE_USERNAME,
                 DATABASE_PASSWORD,
                 OPTIONS
