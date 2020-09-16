@@ -53,7 +53,7 @@ $pdo->getPDO()->exec("CREATE TABLE categories (
     title VARCHAR(255) NOT NULL,
     slug VARCHAR(255) NOT NULL,
     ft_image VARCHAR(255) NOT NULL,
-    content LONGTEXT NOT NULL,
+    content TEXT NOT NULL,
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 
@@ -74,6 +74,7 @@ echo 'Created table categories succesfully !';
         ON UPDATE CASCADE
         ON DELETE RESTRICT
 ) DEFAULT CHARSET=utf8mb4");
+
 
 echo 'Created table posts_comments succesfully !';
 
@@ -99,12 +100,12 @@ $pdo->getPDO()->exec("CREATE TABLE posts_categories (
     post_id INT UNSIGNED NOT NULL,
     category_id INT UNSIGNED NOT NULL,
     PRIMARY KEY (post_id, category_id),
-    CONSTRAINT fk_post_category
+    CONSTRAINT fk_post
         FOREIGN KEY (post_id)
         REFERENCES posts (id)
         ON DELETE CASCADE
         ON UPDATE RESTRICT,
-    CONSTRAINT fk_category_post
+    CONSTRAINT fk_category
         FOREIGN KEY (category_id)
         REFERENCES categories (id)
         ON DELETE CASCADE
