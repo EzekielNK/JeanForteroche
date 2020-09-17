@@ -39,6 +39,7 @@ echo 'Created table posts succesfully !';
 $pdo->getPDO()->exec("CREATE TABLE comments (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     pseudo VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
     published TINYINT NOT NULL,
