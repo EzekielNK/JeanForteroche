@@ -77,9 +77,9 @@ echo 'Created table categories succesfully !';
 ) DEFAULT CHARSET=utf8mb4");
 
 
-echo 'Created table posts_comments succesfully !';
+ echo 'Created table posts_comments succesfully !';
 
-$pdo->getPDO()->exec("CREATE TABLE users_posts (
+ $pdo->getPDO()->exec("CREATE TABLE users_posts (
     user_id INT UNSIGNED NOT NULL,
     post_id INT UNSIGNED NOT NULL,
     PRIMARY KEY (user_id, post_id),
@@ -95,9 +95,9 @@ $pdo->getPDO()->exec("CREATE TABLE users_posts (
         ON DELETE RESTRICT
 ) DEFAULT CHARSET=utf8mb4");
 
-echo 'Created table users_posts succesfully !';
+ echo 'Created table users_posts succesfully !';
 
-$pdo->getPDO()->exec("CREATE TABLE posts_categories (
+ $pdo->getPDO()->exec("CREATE TABLE posts_categories (
     post_id INT UNSIGNED NOT NULL,
     category_id INT UNSIGNED NOT NULL,
     PRIMARY KEY (post_id, category_id),
@@ -113,4 +113,4 @@ $pdo->getPDO()->exec("CREATE TABLE posts_categories (
         ON UPDATE RESTRICT
 ) DEFAULT CHARSET=utf8mb4");
 
-echo 'Created table posts_categories succesfully !';
+ echo 'Created table posts_categories succesfully !';
