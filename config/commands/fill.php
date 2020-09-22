@@ -15,17 +15,136 @@ $comments = [];
 $posts = [];
 $users = [];
 
-/* Create users*/
+$pdo->getPDO()->exec('SET GLOBAL FOREIGN_KEY_CHECKS = 0');
+$pdo->getPDO()->exec("TRUNCATE TABLE posts_categories");
+$pdo->getPDO()->exec("TRUNCATE TABLE posts_comments");
+$pdo->getPDO()->exec("TRUNCATE TABLE users_posts");
+$pdo->getPDO()->exec("TRUNCATE TABLE posts");
+$pdo->getPDO()->exec("TRUNCATE TABLE comments");
+$pdo->getPDO()->exec("TRUNCATE TABLE categories");
+$pdo->getPDO()->exec("TRUNCATE TABLE users");
+$pdo->getPDO()->exec('SET GLOBAL FOREIGN_KEY_CHECKS = 1');
+
+/* Create random users */
+$usersPassword = null;
+
+for ($i = 0; $i < 13; $i++) {
+    $usersPassword = password_hash($faker->password, PASSWORD_BCRYPT);
+    $pdo->getPDO()->exec("INSERT INTO users 
+                                    SET username='{$faker->userName}', 
+                                    password='{$usersPassword}', 
+                                    slug='{$faker->slug}', 
+                                    ft_image='image{$faker->numberBetween($min = 1, $max = 5)}.jpg', 
+                                    content='{$faker->paragraphs(rand(3,15), true)}', 
+                                    email='{$faker->email}', 
+                                    role='Author', 
+                                    created_at='{$faker->date} {$faker->time}'");
+    $users[] = $pdo->getPDO()->lastInsertId();
+}
+echo 'Created Users succesfully !';
 
 $admPassword = password_hash('Admin', PASSWORD_BCRYPT);
 $pdo->getPDO()->exec("INSERT INTO users 
-                                SET username='Admin', 
+                                SET username='Ezekiel', 
                                 password='{$admPassword}',
-                                ft_image='image{$faker->numberBetween($min = 1, $max = 5)}', 
-                                profile_slug='{$faker->slug}', 
-                                profile_content='{$faker->paragraphs(rand(3, 15), true)}', 
+                                ft_image='image{$faker->numberBetween($min = 1, $max = 5)}.jpg', 
+                                slug='ezekiel-slug', 
+                                content='{$faker->paragraphs(rand(3, 15), true)}', 
                                 email='nalax2@gmail.com', 
-                                registration_date='{$faker->date}', 
+                                created_at='{$faker->date} {$faker->time}', 
                                 role='Admin'
                                 ");
+echo 'Created Admin succesfully !';
 
+/* Create posts */
+
+for ($i = 0; $i < 50; $i++) {
+    $pdo->getPDO()->exec("
+                    INSERT INTO posts 
+                    SET user_id = '14', 
+                    title='{$faker->sentence}', 
+                    slug='{$faker->slug}', 
+                    ft_image='image{$faker->numberBetween($min = 1, $max = 5)}.jpg', 
+                    content='{$faker->paragraphs(rand(3, 15), true)}', 
+                    created_at='{$faker->date} {$faker->time}', 
+                    published='1'
+                    ");
+    $posts[] = $pdo->getPDO()->lastInsertId();
+}
+echo 'Created Posts succesfully !';
+
+// Create random comments
+for ($i = 0; $i < 100; $i++) {
+    $pdo->getPDO()->exec("INSERT INTO comments 
+                SET title='{$faker->sentence(2)}', 
+                    pseudo = '{$faker->username}',
+                    email='{$faker->email}', 
+                    content='{$faker->sentence(rand(5,30), true)}',
+                    created_at='{$faker->date} {$faker->time}', 
+                    published='1'
+    ");
+    $comments[] = $pdo->getPDO()->lastInsertId();
+}
+echo 'Created Comments succesfully !';
+
+// Create random categories
+for ($i = 0; $i < 5; $i++) {
+    $pdo->getPDO()->exec("INSERT INTO categories 
+                SET title='{$faker->sentence(2)}', 
+                    slug='{$faker->slug}',
+                    content='{$faker->paragraphs(rand(3,5), true)}',
+                    ft_image='image{$faker->numberBetween($min = 1, $max = 5)}.png'
+    ");
+    $categories[] = $pdo->getPDO()->lastInsertId();
+}
+echo 'Created Categories succesfully !';
+
+/*// Link posts with comments
+foreach($posts as $post) {
+    $randomComments = $faker->randomElements($comments, rand(2, 2));
+    foreach ($randomComments as $comment) {
+        $pdo->getPDO()->exec("INSERT INTO posts_comments SET post_id='$post', comment_id='$comment'");
+    }
+}
+
+echo 'Created posts_comments succesfully !';*/
+
+// Link admin with posts
+foreach ($posts as $post) {
+    $pdo->getPDO()->exec("INSERT INTO users_posts SET user_id='14', post_id='$post'");
+}
+
+echo 'USERS_POSTS, ';
+
+// Link posts with categories
+/*foreach($posts as $post) {
+    $randomCategories = $faker->randomElements($categories, rand(0, count($categories)));
+    foreach ($randomCategories as $category) {
+        $pdo->getPDO()->exec("INSERT INTO posts_categories SET post_id='$post', category_id='$category'");
+    }
+}
+
+echo 'and POSTS_CATEGORIES were filled successfuly!';
+/* Create categories */
+/*
+for ($i =0; $i < 5; $i ++) {
+    $pdo->getPDO()->exec("
+                    INSERT INTO categories
+                    SET title='{$faker->sentence}',
+                    slug='{$faker->slug}',
+                    ft_image='image{$faker->numberBetween($min = 1, $max = 5)}.jpg',
+                    content='{$faker->paragraphs(rand(3, 5), true)}'
+                    ");
+    $categories[] = $pdo->getPDO()->lastInsertId();
+}
+
+foreach ($posts as $post) {
+    $randomCategories = $faker->randomElements($categories, rand(0, count($categories)));
+    foreach ($randomCategories as $category) {
+        $pdo->getPDO()->exec("
+                    INSERT INTO posts_categories
+                    SET post_id='$post',
+                    category_id='$category'
+                    ");
+    }
+}*/

@@ -67,13 +67,13 @@ echo 'Created table categories succesfully !';
     CONSTRAINT fk_post_comment
         FOREIGN KEY (post_id)
         REFERENCES posts (id)
-        ON UPDATE CASCADE
-        ON DELETE RESTRICT,
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT,
     CONSTRAINT fk_comment_post
         FOREIGN KEY (comment_id)
         REFERENCES comments (id)
-        ON UPDATE CASCADE
-        ON DELETE RESTRICT
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT
 ) DEFAULT CHARSET=utf8mb4");
 
 
@@ -86,13 +86,13 @@ echo 'Created table categories succesfully !';
     CONSTRAINT fk_user_post
         FOREIGN KEY (user_id)
         REFERENCES users (id)
-        ON UPDATE CASCADE
-        ON DELETE RESTRICT,
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT,
     CONSTRAINT fk_post_user
         FOREIGN KEY (post_id)
         REFERENCES posts (id)
-        ON UPDATE CASCADE
-        ON DELETE RESTRICT
+        ON DELETE CASCADE
+        ON UPDATE RESTRICT
 ) DEFAULT CHARSET=utf8mb4");
 
  echo 'Created table users_posts succesfully !';
