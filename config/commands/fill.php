@@ -8,29 +8,30 @@ use Config\Connection;
 
 $faker = Faker\Factory::create('fr_FR');
 
-$pdo = new Connection();
+$db = new Connection();
+$pdo = $db->getPDO();
 
 $categories = [];
 $comments = [];
 $posts = [];
 $users = [];
 
-$pdo->getPDO()->exec('SET GLOBAL FOREIGN_KEY_CHECKS = 0');
-$pdo->getPDO()->exec("TRUNCATE TABLE posts_categories");
-$pdo->getPDO()->exec("TRUNCATE TABLE posts_comments");
-$pdo->getPDO()->exec("TRUNCATE TABLE users_posts");
-$pdo->getPDO()->exec("TRUNCATE TABLE posts");
-$pdo->getPDO()->exec("TRUNCATE TABLE comments");
-$pdo->getPDO()->exec("TRUNCATE TABLE categories");
-$pdo->getPDO()->exec("TRUNCATE TABLE users");
-$pdo->getPDO()->exec('SET GLOBAL FOREIGN_KEY_CHECKS = 1');
+$pdo->exec('SET GLOBAL FOREIGN_KEY_CHECKS = 0');
+$pdo->exec("TRUNCATE TABLE posts_categories");
+$pdo->exec("TRUNCATE TABLE posts_comments");
+$pdo->exec("TRUNCATE TABLE users_posts");
+$pdo->exec("TRUNCATE TABLE posts");
+$pdo->exec("TRUNCATE TABLE comments");
+$pdo->exec("TRUNCATE TABLE categories");
+$pdo->exec("TRUNCATE TABLE users");
+$pdo->exec('SET GLOBAL FOREIGN_KEY_CHECKS = 1');
 
 /* Create random users */
 $usersPassword = null;
 
 for ($i = 0; $i < 13; $i++) {
     $usersPassword = password_hash($faker->password, PASSWORD_BCRYPT);
-    $pdo->getPDO()->exec("INSERT INTO users 
+    $pdo->exec("INSERT INTO users 
                                     SET username='{$faker->userName}', 
                                     password='{$usersPassword}', 
                                     slug='{$faker->slug}', 
@@ -39,12 +40,12 @@ for ($i = 0; $i < 13; $i++) {
                                     email='{$faker->email}', 
                                     role='Author', 
                                     created_at='{$faker->date} {$faker->time}'");
-    $users[] = $pdo->getPDO()->lastInsertId();
+    $users[] = $pdo->lastInsertId();
 }
 echo 'Created Users succesfully !';
 
 $admPassword = password_hash('Admin', PASSWORD_BCRYPT);
-$pdo->getPDO()->exec("INSERT INTO users 
+$pdo->exec("INSERT INTO users 
                                 SET username='Ezekiel', 
                                 password='{$admPassword}',
                                 ft_image='image{$faker->numberBetween($min = 1, $max = 5)}.jpg', 
@@ -59,7 +60,7 @@ echo 'Created Admin succesfully !';
 /* Create posts */
 
 for ($i = 0; $i < 50; $i++) {
-    $pdo->getPDO()->exec("
+    $pdo->exec("
                     INSERT INTO posts 
                     SET user_id = '14', 
                     title='{$faker->sentence}', 
@@ -69,14 +70,14 @@ for ($i = 0; $i < 50; $i++) {
                     created_at='{$faker->date} {$faker->time}', 
                     published='1'
                     ");
-    $posts[] = $pdo->getPDO()->lastInsertId();
+    $posts[] = $pdo->lastInsertId();
 }
 
 echo 'Created Posts succesfully !';
 
 // Create random comments
 for ($i = 0; $i < 100; $i++) {
-    $pdo->getPDO()->exec("INSERT INTO comments 
+    $pdo->exec("INSERT INTO comments 
                 SET title='{$faker->sentence(2)}', 
                     pseudo = '{$faker->username}',
                     email='{$faker->email}', 
@@ -84,19 +85,19 @@ for ($i = 0; $i < 100; $i++) {
                     created_at='{$faker->date} {$faker->time}', 
                     published='1'
     ");
-    $comments[] = $pdo->getPDO()->lastInsertId();
+    $comments[] = $pdo->lastInsertId();
 }
 echo 'Created Comments succesfully !';
 
 // Create random categories
 for ($i = 0; $i < 5; $i++) {
-    $pdo->getPDO()->exec("INSERT INTO categories 
+    $pdo->exec("INSERT INTO categories 
                 SET title='{$faker->sentence(2)}', 
                     slug='{$faker->slug}',
                     content='{$faker->paragraphs(rand(3,5), true)}',
                     ft_image='image{$faker->numberBetween($min = 1, $max = 5)}.png'
     ");
-    $categories[] = $pdo->getPDO()->lastInsertId();
+    $categories[] = $pdo->lastInsertId();
 }
 echo 'Created Categories succesfully !';
 
@@ -112,7 +113,7 @@ echo 'Created posts_comments succesfully !';*/
 
 // Link admin with posts
 foreach ($posts as $post) {
-    $pdo->getPDO()->exec("INSERT INTO users_posts SET user_id='14', post_id='$post'");
+    $pdo->exec("INSERT INTO users_posts SET user_id='14', post_id='$post'");
 }
 
 echo 'USERS_POSTS, ';
