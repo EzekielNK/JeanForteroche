@@ -101,52 +101,30 @@ for ($i = 0; $i < 5; $i++) {
 }
 echo 'Created Categories succesfully !';
 
-/*// Link posts with comments
-foreach($posts as $post) {
-    $randomComments = $faker->randomElements($comments, rand(2, 2));
-    foreach ($randomComments as $comment) {
-        $pdo->getPDO()->exec("INSERT INTO posts_comments SET post_id='$post', comment_id='$comment'");
-    }
-}
-
-echo 'Created posts_comments succesfully !';*/
 
 // Link admin with posts
 foreach ($posts as $post) {
     $pdo->exec("INSERT INTO users_posts SET user_id='14', post_id='$post'");
 }
 
-echo 'USERS_POSTS, ';
+echo 'Created users_posts succesfully ! ';
+
+// Link posts with comments
+foreach($posts as $post) {
+    $randomComments = $faker->randomElements($comments, rand(2, 2));
+    foreach ($randomComments as $comment) {
+        $pdo->exec("INSERT INTO posts_comments SET post_id='$post', comment_id='$comment'");
+    }
+}
+
+echo 'Created posts_comments succesfully ! ';
 
 // Link posts with categories
-/*foreach($posts as $post) {
+foreach($posts as $post) {
     $randomCategories = $faker->randomElements($categories, rand(0, count($categories)));
     foreach ($randomCategories as $category) {
-        $pdo->getPDO()->exec("INSERT INTO posts_categories SET post_id='$post', category_id='$category'");
+        $pdo->exec("INSERT INTO posts_categories SET post_id='$post', category_id='$category'");
     }
 }
 
 echo 'and POSTS_CATEGORIES were filled successfuly!';
-/* Create categories */
-/*
-for ($i =0; $i < 5; $i ++) {
-    $pdo->getPDO()->exec("
-                    INSERT INTO categories
-                    SET title='{$faker->sentence}',
-                    slug='{$faker->slug}',
-                    ft_image='image{$faker->numberBetween($min = 1, $max = 5)}.jpg',
-                    content='{$faker->paragraphs(rand(3, 5), true)}'
-                    ");
-    $categories[] = $pdo->getPDO()->lastInsertId();
-}
-
-foreach ($posts as $post) {
-    $randomCategories = $faker->randomElements($categories, rand(0, count($categories)));
-    foreach ($randomCategories as $category) {
-        $pdo->getPDO()->exec("
-                    INSERT INTO posts_categories
-                    SET post_id='$post',
-                    category_id='$category'
-                    ");
-    }
-}*/
