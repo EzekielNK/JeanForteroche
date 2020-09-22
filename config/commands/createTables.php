@@ -3,9 +3,10 @@ require dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'vendor' .DIRECTORY_SE
 require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'DataPDO.php';
 use Config\Connection;
 
-$pdo = new Connection();
+$db = new Connection();
+$pdo = $db->getPDO();
 
-$pdo->getPDO()->exec("CREATE TABLE users (
+$pdo->exec("CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(255) NOT NULL,
     password CHAR(255) NOT NULL,
@@ -20,7 +21,7 @@ $pdo->getPDO()->exec("CREATE TABLE users (
 
 echo 'Created table users succesfully !';
 
-$pdo->getPDO()->exec("CREATE TABLE posts (
+$pdo->exec("CREATE TABLE posts (
     id INT UNSIGNED AUTO_INCREMENT NOT NULL,
     user_id INT UNSIGNED DEFAULT NULL,
     title VARCHAR(255) NOT NULL,
@@ -36,7 +37,7 @@ $pdo->getPDO()->exec("CREATE TABLE posts (
 echo 'Created table posts succesfully !';
 
 
-$pdo->getPDO()->exec("CREATE TABLE comments (
+$pdo->exec("CREATE TABLE comments (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     pseudo VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
@@ -49,7 +50,7 @@ $pdo->getPDO()->exec("CREATE TABLE comments (
 
 echo 'Created table comments succesfully !';
 
-$pdo->getPDO()->exec("CREATE TABLE categories (
+$pdo->exec("CREATE TABLE categories (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     slug VARCHAR(255) NOT NULL,
@@ -60,7 +61,7 @@ $pdo->getPDO()->exec("CREATE TABLE categories (
 
 echo 'Created table categories succesfully !';
 
- $pdo->getPDO()->exec("CREATE TABLE posts_comments (
+ $pdo->exec("CREATE TABLE posts_comments (
     post_id INT UNSIGNED NOT NULL,
     comment_id INT UNSIGNED NOT NULL,
     PRIMARY KEY (post_id, comment_id),
@@ -79,7 +80,7 @@ echo 'Created table categories succesfully !';
 
  echo 'Created table posts_comments succesfully !';
 
- $pdo->getPDO()->exec("CREATE TABLE users_posts (
+ $pdo->exec("CREATE TABLE users_posts (
     user_id INT UNSIGNED NOT NULL,
     post_id INT UNSIGNED NOT NULL,
     PRIMARY KEY (user_id, post_id),
@@ -97,7 +98,7 @@ echo 'Created table categories succesfully !';
 
  echo 'Created table users_posts succesfully !';
 
- $pdo->getPDO()->exec("CREATE TABLE posts_categories (
+ $pdo->exec("CREATE TABLE posts_categories (
     post_id INT UNSIGNED NOT NULL,
     category_id INT UNSIGNED NOT NULL,
     PRIMARY KEY (post_id, category_id),
