@@ -71,6 +71,7 @@ for ($i = 0; $i < 50; $i++) {
                     ");
     $posts[] = $pdo->getPDO()->lastInsertId();
 }
+
 echo 'Created Posts succesfully !';
 
 // Create random comments
