@@ -50,10 +50,8 @@ abstract class Connection
     {
         if ($params) {
             $result = $this->getPDO()->prepare($sql);
-            $result->execute($params);
-            return $result;
+            return $result->execute($params);
         }
-        $result = $this->checkConnection()->query($sql);
-        return $result;
+        return $this->checkConnection()->query($sql);
     }
 }
