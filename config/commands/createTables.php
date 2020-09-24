@@ -1,10 +1,11 @@
 <?php
+
 require dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'vendor' .DIRECTORY_SEPARATOR . 'autoload.php';
 require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'DataPDO.php';
 use Config\Connection;
 
-$db = new Connection();
-$pdo = $db->getPDO();
+/* You will have to pass the method in public for the script to work */
+$pdo = Connection::getPDO();
 
 $pdo->exec("CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,

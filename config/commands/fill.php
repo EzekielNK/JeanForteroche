@@ -1,15 +1,15 @@
 <?php
-                                        /* Test data */
-
-require dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'vendor' .DIRECTORY_SEPARATOR . 'autoload.php';
-require dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'config' .DIRECTORY_SEPARATOR . 'DataPDO.php';
+                                        /* Creation of fake data */
 
 use Config\Connection;
 
+require dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+require dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'DataPDO.php';
+
 $faker = Faker\Factory::create('fr_FR');
 
-$db = new Connection();
-$pdo = $db->getPDO();
+/* You will have to pass the method in public for the script to work */
+$pdo = Connection::getPDO();
 
 $categories = [];
 $comments = [];
@@ -110,7 +110,7 @@ foreach ($posts as $post) {
 echo 'Created users_posts succesfully ! ';
 
 // Link posts with comments
-foreach($posts as $post) {
+foreach ($posts as $post) {
     $randomComments = $faker->randomElements($comments, rand(2, 2));
     foreach ($randomComments as $comment) {
         $pdo->exec("INSERT INTO posts_comments SET post_id='$post', comment_id='$comment'");
@@ -120,7 +120,7 @@ foreach($posts as $post) {
 echo 'Created posts_comments succesfully ! ';
 
 // Link posts with categories
-foreach($posts as $post) {
+foreach ($posts as $post) {
     $randomCategories = $faker->randomElements($categories, rand(0, count($categories)));
     foreach ($randomCategories as $category) {
         $pdo->exec("INSERT INTO posts_categories SET post_id='$post', category_id='$category'");
