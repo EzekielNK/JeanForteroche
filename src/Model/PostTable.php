@@ -3,17 +3,14 @@
 
 namespace App\Model;
 
-
 use Config\Connection;
 
-class PostTable
+class PostTable extends Connection
 {
 
     public function getPost()
     {
-        $pdo = new Connection();
-        $post = $pdo->getPDO();
-        $result = $post->query("SELECT * FROM posts");
-        return $result;
+        $sql = "SELECT * FROM posts";
+        return $this->createQuery($sql);
     }
 }
