@@ -5,7 +5,7 @@ require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'DataPDO.php';
 use Config\Connection;
 
 /* You will have to pass the method in public for the script to work */
-$pdo = Connection::getPDO();
+//$pdo = Connection::getPDO();
 
 $pdo->exec("CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,

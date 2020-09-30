@@ -5,7 +5,7 @@ require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'DataPDO.php';
 use Config\Connection;
 
 /* You will have to pass the method in public for the script to work */
-$pdo = Connection::getPDO();
+//$pdo = Connection::getPDO();
 
 $pdo->exec('SET GLOBAL FOREIGN_KEY_CHECKS = 0');
 $pdo->exec("DROP TABLE posts_categories");

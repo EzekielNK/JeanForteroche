@@ -9,7 +9,7 @@ require dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_S
 $faker = Faker\Factory::create('fr_FR');
 
 /* You will have to pass the method in public for the script to work */
-$pdo = Connection::getPDO();
+//$pdo = Connection::getPDO();
 
 $categories = [];
 $comments = [];
