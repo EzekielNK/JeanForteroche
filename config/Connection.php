@@ -4,6 +4,7 @@ namespace Config;
 
 use PDO;
 use PDOException;
+use PDOStatement;
 
 abstract class Connection
 {
@@ -44,14 +45,17 @@ abstract class Connection
     /**
      * @param $sql
      * @param null $params
-     * @return bool|false|\PDOStatement
+     * @return bool|false|PDOStatement
      */
-    protected function createQuery($sql, $params = null): \PDOStatement
+    protected function createQuery($sql, $params = null): PDOStatement
     {
         if ($params) {
             $result = $this->getPDO()->prepare($sql);
+            $result->setFetchMode(PDO::FETCH_CLASS, static::class);
             return $result->execute($params);
         }
-        return $this->checkConnection()->query($sql);
+        $result = $this->checkConnection()->query($sql);
+        $result->setFetchMode(PDO::FETCH_CLASS, static::class);
+        return $result;
     }
 }
