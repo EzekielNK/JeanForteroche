@@ -1,11 +1,3 @@
-<?php
-
-/*require dirname(dirname(dirname(__DIR__))) . DIRECTORY_SEPARATOR .'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
-require dirname(dirname(dirname(__DIR__))) . DIRECTORY_SEPARATOR .'config' . DIRECTORY_SEPARATOR . 'DataPDO.php';
-
-use Config\Connection;*/
-
-?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -52,9 +44,12 @@ use Config\Connection;*/
             </nav>
         </header>
 
-        <div class="container">
-            <?= $content ?>
-        </div>
+        <section>
+            <div class="container">
+                <?= $content ?>
+            </div>
+        </section>
+
 
         <!-- Tab Bar Mobile -->
         <div class="tab-bottom-bar">
@@ -63,6 +58,7 @@ use Config\Connection;*/
             <a href="#" class="tab-menu-item"><i class="fas fa-book-reader"></i></a>
             <a href="#" class="tab-menu-item"><i class="fas fa-user-tie"></i></a>
             <a href="#" class="tab-menu-item"><i class="fas fa-at"></i></a>
+            <a href="#" class="tab-menu-item"><i class="fas fa-list-alt"></i></a>
         </div>
 
         <footer>
