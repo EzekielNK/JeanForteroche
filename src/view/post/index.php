@@ -6,20 +6,19 @@ use App\Model\PostTable;
 $title = 'Jean Forteroche : Accueil';
 
 $post = new PostTable();
-$posts = $post->getPost();
-while ($article = $posts->fetch()) {
-    echo $article['title'];
-};
+$posts = $post->getPosts();
+$post = $posts->fetch()
+/*while ($post = $posts->fetch()) {
+
+    echo $post->created_at;
+};*/
 
 ?>
 
 <h1>Bienvenue sur mon blog</h1>
 
 <div class="post">
-    <ul>
-        <li>post image</li>
-        <li>post name</li>
-        <li>post created_at</li>
-        <li>post content</li>
-    </ul>
+    <?php foreach ($posts as $post): ?>
+        <?php require "card.php"?>
+    <?php endforeach ?>
 </div>
