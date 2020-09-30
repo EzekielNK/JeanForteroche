@@ -11,6 +11,13 @@
     --blue-color: #80B4BF;
     --body-color: #D9D8D7;
 }
+                                        /* Increase visibility:
+                                        * Content visibility gives a (small) speed gain for almost all websites.*/
+
+#container-header, .container{
+    content-visibility: auto;
+}
+
 body{
     width: auto;
     height: 100%;
@@ -67,6 +74,22 @@ body{
     list-style: none;
     padding: 0;
 }
+                                        /* Grid: Posts */
+
+.post{
+    display: grid;
+    border: solid 1px;
+    grid-template-columns: repeat(3, 1fr);
+}
+.card{
+    margin: 10px;
+    border: solid 1px;
+    padding: 10px;
+}
+.card-title{
+    background-color: var(--blue-color);
+}
+
                                         /* TabBar */
 .tab-bottom-bar{
     position: absolute;
@@ -76,7 +99,6 @@ body{
     width: auto;
     margin: auto;
     left: 0;
-    bottom: 0;
     right: 0;
     height: 32px;
     font-size: 26px;
