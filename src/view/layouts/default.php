@@ -20,8 +20,12 @@
             <meta property="twitter:image" content="" />
             <title><?= $title ?? 'Jean Forteroche' ?></title>
             <link rel="shortcut icon" href="">
+            <!-- Google Font -->
+            <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+            <!-- FontAwesome -->
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
-            <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
+            <!-- Normalize css and our css -->
+            <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css">
             <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         </head>
         <body>
@@ -36,10 +40,11 @@
             <div id="login"><a class="connexion" href="#">Se connecter</a></div>
             <nav id="container-nav">
                 <ul class="container-ul">
-                    <li>Accueil</li>
-                    <li>Article</li>
-                    <li>Biographie</li>
-                    <li>Contact</li>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Article</a></li>
+                    <li><a href="#">Biographie</a></li>
+                    <li><a href="#">Catégories</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
         </header>
@@ -50,22 +55,20 @@
             </div>
         </section>
 
-
-        <!-- Tab Bar Mobile -->
-        <div class="tab-bottom-bar">
-            <a href="#" class="tab-menu-item tab-current"><i class="fas fa-home"></i></a>
-            <a class="tab-nav-indicator"></a>
-            <a href="#" class="tab-menu-item"><i class="fas fa-book-reader"></i></a>
-            <a href="#" class="tab-menu-item"><i class="fas fa-user-tie"></i></a>
-            <a href="#" class="tab-menu-item"><i class="fas fa-at"></i></a>
-            <a href="#" class="tab-menu-item"><i class="fas fa-list-alt"></i></a>
-        </div>
-
         <footer>
             <div class="container-footer">
                 <?php if (defined('DEBUG_TIME')) : ?>
                     Page générée en <?= round(1000 * (microtime(true) - DEBUG_TIME))?> ms
                 <?php endif ?>
+            </div>
+            <!-- Tab Bar Mobile -->
+            <div class="tab-bottom-bar">
+                <a href="#" class="tab-menu-item tab-current"><i class="fas fa-home"></i></a>
+                <a class="tab-nav-indicator"></a>
+                <a href="#" class="tab-menu-item"><i class="fas fa-book-reader"></i></a>
+                <a href="#" class="tab-menu-item"><i class="fas fa-user-tie"></i></a>
+                <a href="#" class="tab-menu-item"><i class="fas fa-at"></i></a>
+                <a href="#" class="tab-menu-item"><i class="fas fa-list-alt"></i></a>
             </div>
         </footer>
 
