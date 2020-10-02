@@ -21,6 +21,7 @@
 body{
     width: auto;
     height: 100%;
+    font-family: 'Roboto', sans-serif;
     background-color: var(--body-color);
 }
                                         /* Header */
@@ -61,39 +62,64 @@ body{
     top: 5px;
     font-size: 0.9em;
 }
-.connexion{
+.connexion, a{
     color: var(--body-color);
     text-decoration: none;
+    cursor: pointer;
 }
-#container-nav{
-    display: none;
-    margin: auto;
+a:hover{
+    color: var(--blue-color);
 }
 .container-ul{
     display: flex;
     list-style: none;
-    padding: 0;
+    position: absolute;
+    top: 30px;
+    right: 100px;
+}
+#container-nav  li{
+    margin: 0 15px;
 }
                                         /* Grid: Posts */
 
 .post{
-    display: grid;
+    /*display: grid;
     border: solid 1px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);*/
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    justify-content: center;
+    gap: 20px;
+    max-width: 1500px;
+    width: 80%;
+    height: auto;
+    margin: 30px auto;
+    border: 1px solid #333;
 }
 .card{
-    margin: 10px;
+    /*margin: 10px;
     border: solid 1px;
     padding: 10px;
+    width: 500px;
+    height: 200px;*/
+    background-color: darkkhaki;
 }
 .card-title{
     background-color: var(--blue-color);
 }
 
+                                        /* Footer */
+.container-footer{
+    display: block;
+    background-color: var(--dark-color);
+    color: var(--body-color);
+    width: auto;
+    height: 200px;
+}
                                         /* TabBar */
 .tab-bottom-bar{
     position: absolute;
-    display: flex;
+    display: none;
     padding: 16px 36px;
     justify-content: space-between;
     width: auto;
