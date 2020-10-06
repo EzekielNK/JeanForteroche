@@ -1,8 +1,5 @@
 <?php
-
-
 use App\Helpers\Text;
-
 
 ?>
 <article class="card">
@@ -12,8 +9,11 @@ use App\Helpers\Text;
             <?= $post->title ?>
             <hr>
         </h4>
-        <p class="text-muted"><?= $post->created_at ?></p>
-        <p class="card-info"><?= nl2br(Text::excerpt($post->content, 150)) ?></p>
+        <div class="text-muted">
+            <i class="fas fa-newspaper"></i>
+            <p class="text"><?= $post->created_at ?></p>
+        </div>
+        <p class="card-info"><?= nl2br(Text::excerpt($post->content, 130)) ?></p>
         <button type="button" class="btn-button">Voir plus</button>
     </div>
 </article>

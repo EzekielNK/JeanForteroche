@@ -84,7 +84,7 @@ a:hover{
 
 .post{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
    /* display: grid;
     grid-template-rows: 450px 450px;
     grid-template-columns: repeat(2, 650px);*/
@@ -105,6 +105,7 @@ a:hover{
     grid-column: 1 / -1;
     width: auto;
 }
+
 .card-body{
     /*margin: 10px;
     border: solid 1px;
@@ -116,8 +117,8 @@ a:hover{
     background-color: #f1f1f1;
     border-radius: 5px;
 }
-.card:first-child>.card-body{
-    grid-template: repeat(2, 100px) 50px repeat(2, 100px) 80px / repeat(3, 400px);
+.card:first-child >.card-body{
+    grid-template: repeat(2, 100px) 50px repeat(2, 100px) 80px / repeat(3, 355px);
 }
 .card-image{
     grid-area: 1 / 1 / 3 / 4;
@@ -133,14 +134,31 @@ a:hover{
     font-size: 15px;
     font-weight: 500;
     padding: 20px;
-    
+
 }
 hr{
     opacity: 0.8;
 }
 .text-muted{
-    grid-area: 4/ 1/ 6/ 4;
+    /*grid-area: 4/ 1/ 6/ 4;
     padding: 5px 25px;
+    color: gray;
+    font-size: 10px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    margin-top: 10px;
+    font-size: 10px;
+    padding: 5px 25px;
+}
+.text-muted,.text{
+    width: 150px;
+    color: gray;
+}
+.fa-newspaper{
+    width: 24px;
+    color: var(--blue-color);
 }
 .card-info{
     grid-area: 5/ 1/ 6/ 4;
@@ -157,6 +175,8 @@ hr{
     background: var(--blue-color);
     margin: auto;
     border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.8);
 }
 
                                         /* Footer */

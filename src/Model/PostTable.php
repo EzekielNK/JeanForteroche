@@ -14,7 +14,7 @@ class PostTable extends Connection
      */
     public function getPosts(): PDOStatement
     {
-        $sql = "SELECT * FROM posts ORDER BY created_at DESC LIMIT 7";
+        $sql = "SELECT * FROM posts ORDER BY created_at DESC LIMIT 8";
         return $this->createQuery($sql);
     }
 

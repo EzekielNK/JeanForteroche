@@ -7,7 +7,7 @@ namespace App\Helpers;
 class Text
 {
 
-    public static function excerpt(string $content, int $limit = 150)
+    public static function excerpt(string $content, int $limit = 130)
     {
         if (mb_strlen($content) < $limit) {
             return $content;
