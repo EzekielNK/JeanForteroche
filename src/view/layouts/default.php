@@ -51,7 +51,7 @@
         </header>
 
         <section id="main">
-            <div class="test">
+            <div class="home">
                 <h1>La littérature, quand elle n'est pas un art, est au moins une profession libérale.</h1>
             </div>
             <div class="container">

@@ -17,6 +17,9 @@
 #container-header, .container{
     content-visibility: auto;
 }
+img{ /* for testing */
+    image-rendering: optimizeQuality;
+}
 
 body{
     width: auto;
@@ -71,91 +74,104 @@ a:hover{
     color: var(--blue-color);
 }
 .container-ul{
-    display: flex;
-    list-style: none;
-    position: absolute;
-    top: 30px;
-    right: 100px;
+    display: none;
 }
 #container-nav  li{
     margin: 0 15px;
 }
+                                        /* @Media Header */
+@media (min-width: 992px) {
+    .container-ul{
+        display: flex;
+        list-style: none;
+        position: absolute;
+        top: 30px;
+        right: 100px;
+    }
+}
+                                        /* Header End */
+
+                                        /* Section */
 #main{
     position: relative;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
-
-.container h2{
-    margin: 600px auto 0;
-    text-align: center;
-}
-.test{
+                                        /* Home */
+.home{
     position: absolute;
     width: 100%;
+    height: 95px;
     background: url(../img/img12.jpg);
-    height: 500px;
-
     background-size: cover;
     background-position: 50% 50%;
 }
-.test h1{
+.home h1{
     font-family: 'Great Vibes', cursive, sans-serif;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 22px;
     color: var(--body-color);
-    font-size: 4em;
-    width: 50%;
-    margin-left: 100px;
+    font-size: 1.5em;
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
     height: auto;
 }
-
+                                        /* @Media Home */
+@media (min-width: 992px) {
+    .home{
+        height: 500px;
+    }
+    .home h1{
+        margin-top: 180px;
+        font-size: 4em;
+        width: 50%;
+        margin-left: 100px;
+        height: auto;
+    }
+}
+                                        /* Home End */
+                                        /* Container */
+.container h2{
+    margin: 150px auto 0;
+    text-align: center;
+}
+                                        /* @Media Container */
+@media (min-width: 992px) {
+    .container h2{
+        margin: 600px auto 0;
+    }
+}
+                                        /* Container End */
                                         /* Grid: Posts */
 
 .post{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-   /* display: grid;
-    grid-template-rows: 450px 450px;
-    grid-template-columns: repeat(2, 650px);*/
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     grid-gap: 50px;
     max-width: 1500px;
-    width: 80%;
+    width: 90%;
     height: auto;
-    margin: 90px auto 200px;
-    /*background-color: var(--dark-color);*/
+    margin: 50px auto 100px;
     border-radius: 6px 6px 0 0;
-
 }
 .post, .card{
     border: 1px solid rgba(0, 0, 0, 0.12);
     box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.8);
 }
 .card{
-    width: 330px;
+    width: auto;
     height: 530px;
     margin: 30px auto;
 }
-.card:first-child{
-    grid-column: 1 / -1;
-    width: auto;
-}
-
 .card-body{
-    /*margin: 10px;
-    border: solid 1px;
-    padding: 10px;
-    height: auto;*/
     display: grid;
     height: 530px;
-    grid-template: repeat(2, 100px) 50px repeat(2, 100px) 80px / repeat(3, 110px);
+    grid-template: repeat(2, 100px) 50px repeat(2, 100px) 80px / repeat(3, 85px);
     background-color: #f1f1f1;
     border-radius: 6px;
-}
-.card:first-child >.card-body{
-    grid-template: repeat(2, 100px) 50px repeat(2, 100px) 80px / repeat(3, 355px);
 }
 .card-image{
     grid-area: 1 / 1 / 3 / 4;
@@ -170,7 +186,7 @@ a:hover{
     grid-area: 3 / 1/ 4/ 4;
     font-size: 15px;
     font-weight: 500;
-    padding: 20px;
+    padding: 19px;
 
 }
 hr{
@@ -215,19 +231,33 @@ hr{
     border: 1px solid rgba(0, 0, 0, 0.12);
     box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.8);
 }
-
+                                        /* @Media Grid: Post */
+@media (min-width: 992px) {
+    .post{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .card:first-child{
+        grid-column: 1 / -1;
+        width: auto;
+    }
+    .card-body{
+        grid-template: repeat(2, 100px) 50px repeat(2, 100px) 80px / repeat(3, 110px);
+    }
+    .card:first-child > .card-body{
+        grid-template: repeat(2, 100px) 50px repeat(2, 100px) 80px / repeat(3, 355px);
+    }
+}
+                                        /* Grid: Post End */
+                                        /* Section End */
                                         /* Footer */
 .container-footer{
-    display: block;
-    background-color: var(--dark-color);
-    color: var(--body-color);
-    width: auto;
-    height: 200px;
+    display: none;
 }
                                         /* TabBar */
 .tab-bottom-bar{
     position: absolute;
-    display: none;
+    display: flex;
     padding: 16px 36px;
     justify-content: space-between;
     width: auto;
@@ -241,26 +271,39 @@ hr{
     transition: cubic-bezier(0.57, 0.23, 0.08, 0.96) .45s;
 }
 .tab-nav-indicator{
-    position: absolute;
-    width: 56px;
-    height: 56px;
-    bottom: 28px;
-    margin: auto;
-    left: 0;
-    background-color: var(--dark-color);
-    box-shadow: var(--main-cast-shadow);
-    border-radius: 50%;
-    transition: cubic-bezier(0.45, 0.73, 0, 0.59) .3s;
+       position: absolute;
+       width: 56px;
+       height: 56px;
+       bottom: 28px;
+       margin: auto;
+       left: 0;
+       background-color: var(--dark-color);
+       box-shadow: var(--main-cast-shadow);
+       border-radius: 50%;
+       transition: cubic-bezier(0.45, 0.73, 0, 0.59) .3s;
 }
 .tab-menu-item{
     color: var(--fore-color);
     transition: ease-in-out .5s;
     cursor: pointer;
 }
-
 .tab-current{
     position: relative;
     color: var(--blue-color);
     z-index: 3;
     transform:translate3d(-2px,-22px,0px);
 }
+                                        /* @Media Footer */
+@media (min-width: 992px) {
+    .container-footer{
+        display: block;
+        background-color: var(--dark-color);
+        color: var(--body-color);
+        width: auto;
+        height: 200px;
+    }
+    .tab-bottom-bar{
+        display: none;
+    }
+}
+                                        /* Footer End */
