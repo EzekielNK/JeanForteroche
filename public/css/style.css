@@ -80,6 +80,37 @@ a:hover{
 #container-nav  li{
     margin: 0 15px;
 }
+#main{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container h2{
+    margin: 600px auto 0;
+    text-align: center;
+}
+.test{
+    position: absolute;
+    width: 100%;
+    background: url(../img/img12.jpg);
+    height: 500px;
+
+    background-size: cover;
+    background-position: 50% 50%;
+}
+.test h1{
+    font-family: 'Great Vibes', cursive, sans-serif;
+    text-align: center;
+    margin-top: 200px;
+    color: var(--body-color);
+    font-size: 4em;
+    width: 50%;
+    margin-left: 100px;
+    height: auto;
+}
+
                                         /* Grid: Posts */
 
 .post{
@@ -93,8 +124,14 @@ a:hover{
     max-width: 1500px;
     width: 80%;
     height: auto;
-    margin: 30px auto;
-    border: 1px solid #333;
+    margin: 90px auto 200px;
+    /*background-color: var(--dark-color);*/
+    border-radius: 6px 6px 0 0;
+
+}
+.post, .card{
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.8);
 }
 .card{
     width: 330px;
@@ -115,7 +152,7 @@ a:hover{
     height: 530px;
     grid-template: repeat(2, 100px) 50px repeat(2, 100px) 80px / repeat(3, 110px);
     background-color: #f1f1f1;
-    border-radius: 5px;
+    border-radius: 6px;
 }
 .card:first-child >.card-body{
     grid-template: repeat(2, 100px) 50px repeat(2, 100px) 80px / repeat(3, 355px);

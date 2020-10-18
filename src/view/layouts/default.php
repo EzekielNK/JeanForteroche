@@ -22,7 +22,8 @@
             <link rel="shortcut icon" href="">
             <!-- Google Font -->
             <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-            <!-- FontAwesome -->
+            <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+        <!-- FontAwesome -->
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
             <!-- Normalize css and our css -->
             <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css">
@@ -41,7 +42,7 @@
             <nav id="container-nav">
                 <ul class="container-ul">
                     <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Article</a></li>
+                    <li><a href="#">Articles</a></li>
                     <li><a href="#">Biographie</a></li>
                     <li><a href="#">Catégories</a></li>
                     <li><a href="#">Contact</a></li>
@@ -49,7 +50,10 @@
             </nav>
         </header>
 
-        <section>
+        <section id="main">
+            <div class="test">
+                <h1>La littérature, quand elle n'est pas un art, est au moins une profession libérale.</h1>
+            </div>
             <div class="container">
                 <?= $content ?>
             </div>

@@ -15,7 +15,7 @@ $post = $posts->fetch()
 
 ?>
 
-<h1>Bienvenue sur mon blog</h1>
+<h2> Dernière nouvelle</h2>
 
 <div class="post">
     <?php foreach ($posts as $post): ?>
