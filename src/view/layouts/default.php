@@ -42,7 +42,6 @@
             <nav id="container-nav">
                 <ul class="container-ul">
                     <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Articles</a></li>
                     <li><a href="#">Biographie</a></li>
                     <li><a href="#">Catégories</a></li>
                     <li><a href="#">Contact</a></li>
